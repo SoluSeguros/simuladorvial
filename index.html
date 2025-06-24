@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulador Carretera 3D: Sobrio vs Embriagado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Logo fijo con marca, siempre visible -->
+  <div id="marca-empresa">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKsf7hXctJ2TX5QXT1njDuwpEV-tzwSXu6Q&s"
+      alt="Logo SotuSeguros"
+    >
+    <span>Creado por SotuSeguros</span>
+  </div>
+
+  <div id="mensaje">
+    Usa flechas o toca los botones. Presiona "E" o "🍺" para modo EMBRIAGADO.<br>
+    ¡Evita los autos y prueba las curvas!
+  </div>
+  <div id="alerta">¡Colisión!</div>
+  <div id="puntaje">Puntaje: 0</div>
+  <div id="modo">Modo: SOBRIO</div>
+  <div id="selector-controles" style="display:none"></div>
+  <div id="controles-movil" style="display:none">
+    <button class="btn-touch" id="btn-izq">&#8592;</button>
+    <button class="btn-touch" id="btn-der">&#8594;</button>
+    <button class="btn-touch btn-modo" id="btn-modo">&#127867;</button>
+  </div>
+  <img 
+    id="cabina"
+    src="https://png.pngtree.com/png-clipart/20231012/original/pngtree-bus-dashboard-panel-control-car-illustration-png-image_13168240.png"
+  >
+
+  <!-- Pantalla de bienvenida con logo grande y marca -->
+  <div id="pantalla-bienvenida">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKsf7hXctJ2TX5QXT1njDuwpEV-tzwSXu6Q&s"
+      alt="Logo SotuSeguros"
+      class="logo-central"
+    >
+    <div class="marca-central">Creado por SotuSeguros</div>
+    <h1>Simulador de Conducción</h1>
+    <p>¡Bienvenido! Ingresa tu nombre para comenzar:</p>
+    <input type="text" id="input-nombre" placeholder="Tu nombre...">
+    <p>Selecciona dificultad:</p>
+    <select id="nivel-dificultad" style="font-size:1.1em; padding:8px 16px; border-radius:8px; margin-bottom:18px;">
+      <option value="facil">Fácil 🚗</option>
+      <option value="media" selected>Media 🚙</option>
+      <option value="dificil">Difícil 🚓</option>
+    </select>
+    <button id="btn-comenzar">Comenzar</button>
+  </div>
+
+  <!-- Pantalla de fin de partida con logo grande y marca -->
+  <div id="pantalla-fin">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKsf7hXctJ2TX5QXT1njDuwpEV-tzwSXu6Q&s"
+      alt="Logo SotuSeguros"
+      class="logo-central"
+    >
+    <div class="marca-central">Creado por SotuSeguros</div>
+    <h2>¡Fin del juego!</h2>
+    <div id="resumen-partida"></div>
+    <div id="mensaje-educativo"></div>
+    <button id="btn-reiniciar">Jugar de nuevo</button>
+  </div>
+
+  <!-- Diploma digital -->
+  <div id="diploma-digital">
+    <div class="diploma-contenido">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReKsf7hXctJ2TX5QXT1njDuwpEV-tzwSXu6Q&s"
+        alt="Logo SotuSeguros"
+        class="logo-diploma"
+      >
+      <h2>¡Felicidades!</h2>
+      <div id="diploma-nombre"></div>
+      <div class="diploma-titulo">Ha finalizado el simulador vial<br>de SotuSeguros</div>
+      <div class="diploma-mensaje">
+        <span>Conduzca siempre sobrio y sea un ejemplo de seguridad vial.<br>¡Gracias por participar!</span>
+      </div>
+      <button id="btn-reiniciar-todo">Volver a Jugar</button>
+      <button id="btn-descargar-diploma">Descargar diploma</button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

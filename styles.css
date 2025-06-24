@@ -1,0 +1,377 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* ----------- Logo fijo arriba a la izquierda con marca ----------- */
+#marca-empresa {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.85);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px #0002;
+  padding: 10px 20px 10px 10px;
+  gap: 15px;
+}
+#marca-empresa img {
+  width: 56px;
+  height: 56px;
+  border-radius: 15px;
+  background: #fff;
+  object-fit: cover;
+  box-shadow: 0 2px 10px #0002;
+}
+#marca-empresa span {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #185889;
+  letter-spacing: 0.03em;
+  font-family: Arial, sans-serif;
+  text-shadow: 1px 1px 6px #fff, 0 0 2px #0001;
+}
+
+/* ----------- Logo y marca centrados en pantallas principales ----------- */
+.logo-central {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border-radius: 15px;
+  background: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 18px #0002;
+}
+.marca-central {
+  text-align: center;
+  font-size: 1.15em;
+  color: #185889;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 6px #fff, 0 0 2px #0001;
+}
+
+/* ----------- Mensajes ----------- */
+#mensaje {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 21px;
+  z-index: 10;
+  text-shadow: 2px 2px 4px #000;
+}
+
+#alerta {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #f00;
+  font-size: 2em;
+  font-weight: bold;
+  background: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  padding: 20px 40px;
+  box-shadow: 0 4px 30px #0008;
+  display: none;
+  z-index: 99;
+}
+
+#cabina {
+  position: absolute;
+  left: 0; bottom: 0;
+  width: 100vw;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.93;
+}
+
+#puntaje {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  color: #fff;
+  font-size: 1.3em;
+  font-weight: bold;
+  background: rgba(0,0,0,0.34);
+  border-radius: 8px;
+  padding: 8px 16px;
+  z-index: 12;
+  letter-spacing: 1.5px;
+  box-shadow: 0 2px 12px #0005;
+}
+
+/* ----------- OPCIÓN 2: MODO ARRIBA DERECHA ----------- */
+#modo {
+  position: absolute;
+  right: 18px;
+  top: 64px;
+  left: auto;
+  bottom: auto;
+  color: #fff;
+  font-size: 1.15em;
+  font-weight: bold;
+  background: rgba(24,24,24,0.68);
+  border-radius: 10px;
+  padding: 10px 22px;
+  z-index: 13;
+  box-shadow: 0 2px 12px #0003;
+  transition: background 0.5s;
+}
+@media (max-width:700px) {
+  #modo {
+    font-size: 1em;
+    right: 12px;
+    top: 56px;
+    left: auto;
+    bottom: auto;
+    padding: 7px 15px;
+  }
+}
+
+/* ----------- BOTONES MOVIL ----------- */
+#controles-movil {
+  position: absolute;
+  bottom: 30px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  gap: 38px;
+  z-index: 30;
+  pointer-events: none;
+}
+.btn-touch {
+  background: #282828dd;
+  border: 2px solid #bbb;
+  color: #fff;
+  font-size: 2.6em;
+  border-radius: 50%;
+  width: 68px; height: 68px;
+  box-shadow: 0 4px 18px #0007;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: none;
+  transition: background 0.18s;
+}
+.btn-touch:active {
+  background: #e53935cc;
+}
+.btn-modo {
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
+  font-size: 1.3em;
+  background: #ffb300e8;
+  color: #2d2d2d;
+  border: 2px solid #fff;
+  margin-left: 15px;
+}
+#selector-controles {
+  position: absolute;
+  top: 70px; left: 50%;
+  transform: translateX(-50%);
+  background: #fff7;
+  color: #333;
+  padding: 18px 28px;
+  font-size: 1.15em;
+  border-radius: 12px;
+  z-index: 100;
+  box-shadow: 0 4px 20px #0005;
+  text-align: center;
+}
+
+@media (max-width:700px) {
+  #mensaje { font-size: 16px; top:2px;}
+  #puntaje { font-size: 1em;}
+  #selector-controles { top: 18px;}
+  #marca-empresa { top: 8px; left: 6px; padding: 6px 11px 6px 6px; }
+  #marca-empresa img { width: 38px; height: 38px; }
+  #marca-empresa span { font-size: 0.97em;}
+  .logo-central { width: 58px; height: 58px; }
+}
+
+/* ----------- Pantalla bienvenida y fin de partida ----------- */
+#pantalla-bienvenida, #pantalla-fin {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  top: 0; left: 0;
+}
+
+#pantalla-bienvenida {
+  background: linear-gradient(120deg,#134E5E,#71B280 80%);
+  display: flex;
+}
+
+#pantalla-bienvenida h1,
+#pantalla-fin h2 {
+  color: #fff;
+  text-shadow: 2px 2px 12px #000;
+}
+
+#pantalla-bienvenida p {
+  color: #fff;
+  font-size: 1.2em;
+}
+#pantalla-bienvenida input[type="text"] {
+  font-size: 1.3em;
+  padding: 9px 16px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  margin-bottom: 18px;
+  box-shadow: 0 2px 10px #2223;
+}
+#pantalla-bienvenida button {
+  background: #1976d2;
+  color: #fff;
+  font-size: 1.2em;
+  border-radius: 8px;
+  padding: 9px 32px;
+  border: none;
+  box-shadow: 0 2px 10px #2224;
+  cursor: pointer;
+}
+
+#pantalla-fin {
+  background: linear-gradient(120deg,#E55D87,#5FC3E4 80%);
+}
+#pantalla-fin #resumen-partida {
+  color: #fff;
+  font-size: 1.1em;
+  margin: 12px 0;
+}
+#pantalla-fin #mensaje-educativo {
+  color: #fff;
+  background: rgba(0,0,0,0.16);
+  border-radius: 10px;
+  padding: 12px 26px;
+  margin: 15px 0;
+  font-size: 1.1em;
+}
+#pantalla-fin button {
+  background: #1976d2;
+  color: #fff;
+  font-size: 1.2em;
+  border-radius: 8px;
+  padding: 9px 32px;
+  border: none;
+  box-shadow: 0 2px 10px #2224;
+  cursor: pointer;
+}
+/* Diploma digital bonito */
+#diploma-digital {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(15,30,75,0.45);
+  justify-content: center;
+  align-items: center;
+}
+.diploma-contenido {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 38px #0006;
+  padding: 38px 36px 32px 36px;
+  text-align: center;
+  min-width: 320px;
+  max-width: 96vw;
+  margin: auto;
+  position: relative;
+}
+.logo-diploma {
+  width: 88px;
+  height: 88px;
+  border-radius: 18px;
+  margin-bottom: 18px;
+  object-fit: contain;
+  box-shadow: 0 2px 12px #0002;
+  background: #fff;
+}
+.diploma-contenido h2 {
+  color: #1976d2;
+  font-size: 2em;
+  margin-bottom: 10px;
+  margin-top: 0;
+  text-shadow: 1px 1px 10px #91b6e2a0;
+}
+#diploma-nombre {
+  font-size: 1.45em;
+  font-weight: bold;
+  color: #222;
+  margin-bottom: 7px;
+  margin-top: 6px;
+}
+.diploma-titulo {
+  font-size: 1.13em;
+  color: #185889;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+.diploma-mensaje {
+  font-size: 1em;
+  color: #444;
+  background: #f2f6fa;
+  border-radius: 10px;
+  margin: 18px 0 18px 0;
+  padding: 14px 8px;
+  font-style: italic;
+}
+#btn-reiniciar-todo {
+  margin-top: 8px;
+  background: #1976d2;
+  color: #fff;
+  font-size: 1.13em;
+  border-radius: 10px;
+  padding: 8px 28px;
+  border: none;
+  box-shadow: 0 2px 10px #2222;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+#btn-reiniciar-todo:hover {
+  background: #185889;
+}
+@media (max-width:700px) {
+  .diploma-contenido {
+    padding: 17px 4vw 14px 4vw;
+    min-width: 0;
+  }
+}
+#btn-descargar-diploma {
+  margin-top: 12px;
+  background: #43a047;
+  color: #fff;
+  font-size: 1.08em;
+  border-radius: 10px;
+  padding: 8px 22px;
+  border: none;
+  box-shadow: 0 2px 10px #2222;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.02em;
+  transition: background 0.2s;
+}
+#btn-descargar-diploma:hover {
+  background: #2e7d32;
+}
